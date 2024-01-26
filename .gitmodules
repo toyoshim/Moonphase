@@ -1,0 +1,3 @@
+[submodule "firmware/chlib"]
+	path = firmware/chlib
+	url = git@github.com:toyoshim/chlib.git
