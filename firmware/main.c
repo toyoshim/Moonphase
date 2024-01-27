@@ -103,9 +103,12 @@ static uint8_t get_flags(void) {
 void main(void) {
   initialize();
 
-  P3_PU = 0xff;   // Pull-up
   P3_DIR = 0xff;  // Output
   P3 = 0xff;      // High
+
+  // For local tentative repair.
+  P4_DIR |= (1 << 3);
+  P4_OUT |= (1 << 3);
 
   timer3_tick_init();
 
@@ -154,5 +157,8 @@ void main(void) {
     P3_5 = buttons[0] ? LOW : HIGH;
     P3_6 = buttons[2] ? LOW : HIGH;
     P3_7 = buttons[1] ? LOW : HIGH;
+
+    // For local tantative repair.
+    P4_3 = buttons[1] ? LOW : HIGH;
   }
 }
